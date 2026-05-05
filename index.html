@@ -1,278 +1,199 @@
-
-<h2 class="sr-only">AI Stylizer prompt analysis with key metrics and ranked use case breakdown</h2>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Stylizer Prompt Analysis</title>
 <style>
-.cat-row { margin-bottom: 2px; }
-.cat-header { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 10px 12px; border-radius: var(--border-radius-md); transition: background 0.15s; }
-.cat-header:hover { background: var(--color-background-secondary); }
-.cat-label { font-size: 13px; font-weight: 500; color: var(--color-text-primary); min-width: 240px; flex-shrink: 0; }
-.cat-bar { height: 24px; border-radius: 4px; min-width: 4px; background: #AFA9EC; }
-.cat-count { font-size: 13px; color: var(--color-text-secondary); min-width: 28px; text-align: right; }
-.cat-chevron { font-size: 11px; color: var(--color-text-secondary); min-width: 16px; text-align: center; transition: transform 0.2s; }
-.cat-chevron.open { transform: rotate(90deg); }
-.cat-examples { display: none; padding: 6px 12px 12px 24px; }
-.cat-examples.open { display: block; }
-.example-q { font-size: 12px; color: var(--color-text-secondary); padding: 3px 0; line-height: 1.5; }
-.example-q span { color: var(--color-text-tertiary); font-size: 11px; }
-</style>
-
-<div style="padding: 0.25rem 0;">
-
-<div style="margin-bottom: 8px;">
-  <div style="font-size: 20px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">What customers are really asking AI Stylizer to do</div>
-  <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; max-width: 600px;">Analysis of all <span style="font-weight: 500;">stylizer prompt submitted</span> events from Jan 1 – May 5, 2026 across 30+ customers. Click any row to see real prompts.</div>
-</div>
-
-<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 20px 0 28px;">
-  <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px;">
-    <div style="font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px;">Total prompts</div>
-    <div style="font-size: 28px; font-weight: 500; color: var(--color-text-primary);">~335</div>
-  </div>
-  <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px;">
-    <div style="font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px;">Unique customers</div>
-    <div style="font-size: 28px; font-weight: 500; color: var(--color-text-primary);">30+</div>
-  </div>
-  <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px;">
-    <div style="font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px;">Typed prompts beyond styling</div>
-    <div style="font-size: 28px; font-weight: 500; color: #534AB7;">87%</div>
-  </div>
-  <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px;">
-    <div style="font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px;">Top ask</div>
-    <div style="font-size: 16px; font-weight: 500; color: var(--color-text-primary); line-height: 1.3; margin-top: 4px;">Resize & reposition elements</div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Make it bigger / smaller / move it</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: 100%; max-width: 300px;"></div></div>
-    <div class="cat-count">~78</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"Make this less wide" <span>— James Hardie (x5)</span></div>
-    <div class="example-q">"3px higher" <span>— Versant</span></div>
-    <div class="example-q">"move it 20px to the left" <span>— Versant</span></div>
-    <div class="example-q">"position sort by and page size side by side so it takes up less space" <span>— Maritime Beauty</span></div>
-    <div class="example-q">"add 24 pixels of padding to the left of the rocket emoji" <span>— QFG</span></div>
-    <div class="example-q">"aumente um pouco mais o tamanho do elemento" (make it a little bigger) <span>— Decathlon (x11 similar)</span></div>
-    <div class="example-q">"align left" <span>— Santevet (x4)</span></div>
-    <div class="example-q">"there's too much whitespace for such little text" <span>— Furnished Finder</span></div>
-    <div class="example-q">"center the button and apply the same width as the Download My Results button above" <span>— Sunny LLC</span></div>
-    <div class="example-q">"display the toggle switch to the right of the label and right aligned to the end of the container" <span>— Rooms To Go</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">One-click presets</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(63/78*100%); max-width: 300px; background: #B4B2A9;"></div></div>
-    <div class="cat-count">~63</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"compelling" <span>— 14 uses across Maritime Beauty, Rowmark, Helium 10, Snowball, others</span></div>
-    <div class="example-q">"increase_contrast" <span>— 14 uses across Maritime Beauty, Dairy Queen, Ad Hoc Labs, others</span></div>
-    <div class="example-q">"pop" <span>— 9 uses across vidIQ, Furnished Finder, Dairy Queen, others</span></div>
-    <div class="example-q">"new_visitors" <span>— 10 uses across Huckleberry, Rowmark, VGW, others</span></div>
-    <div class="example-q">"match_styles" <span>— 6 uses across Huckleberry, Versant, Furnished Finder</span></div>
-    <div class="example-q">"text2_benefits" <span>— 5 uses across Huckleberry, VGW, Gympass, others</span></div>
-    <div class="example-q">"headline1_compelling" <span>— 3 uses across Ria, Odd Morning, random-id</span></div>
-    <div class="example-q">"text1_simplify" <span>— 2 uses across James Hardie, random-id</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Add something new to the page</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(43/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~43</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"A modal encouraging users to sign up for DQ Rewards" <span>— Dairy Queen</span></div>
-    <div class="example-q">"create a cta" <span>— SiriusXM</span></div>
-    <div class="example-q">"Add a trust bar with 3 value propositions below the search form" <span>— Distribusion</span></div>
-    <div class="example-q">"Duplicate the bottom and place it below the You're at your best when section" <span>— Sunny LLC</span></div>
-    <div class="example-q">"Is it possible to add a button below the black blocks which leads to the full FAQ?" <span>— Dentme</span></div>
-    <div class="example-q">"add a small block below with the 5 star ratings" <span>— Distribusion</span></div>
-    <div class="example-q">"I need the modal to have a background image… then an inset content area with a header, subheader, and a CTA" <span>— Imperfect Foods</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Change colors, fonts, borders</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(36/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~36</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"can you make this more on brand, which is a blue background not green" <span>— Maritime Beauty</span></div>
-    <div class="example-q">"change color to brand colors" <span>— Maritime Beauty</span></div>
-    <div class="example-q">"deixe as bordas redondas" (make the borders rounded) <span>— Decathlon</span></div>
-    <div class="example-q">"button should have rounded edges so it is the same style as other buttons" <span>— James Hardie</span></div>
-    <div class="example-q">"The blue background is competing with other blue CTA buttons… adjust the colors" <span>— Huckleberry</span></div>
-    <div class="example-q">"troque a cor desse svg para branco" (change svg color to white) <span>— Decathlon</span></div>
-    <div class="example-q">"remove the border and make it look like a better toggle" <span>— Lanterna</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Write or change copy for me</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(34/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~34</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"Add text below this that reads First time offer! $20 off $50 or more with code: BONUSBEAUTY" <span>— Maritime Beauty</span></div>
-    <div class="example-q">"change copy to 'Plan your next trip'" <span>— Divearoo</span></div>
-    <div class="example-q">"change text to 'TALK TO AN IB EXPERT'" <span>— Lanterna</span></div>
-    <div class="example-q">"Change to 'Save $25 + $0 Delivery'" <span>— Care.com</span></div>
-    <div class="example-q">"добавь ниже billed annually" (add "billed annually" below) <span>— Semaphore (x3)</span></div>
-    <div class="example-q">"modifier le texte en 'Simuler mon net en 2 min'" <span>— Codincloud</span></div>
-    <div class="example-q">"Altere o texto da faixa… deve ser estático: Vai Brasil!" <span>— Decathlon</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Make it clickable / interactive / dynamic</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(30/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~30</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"when a user clicks BONUSBEAUTY copy the code to their clipboard" <span>— Maritime Beauty (x7 variations)</span></div>
-    <div class="example-q">"can you make it so clicking this image opens the rewards launcher" <span>— Maritime Beauty</span></div>
-    <div class="example-q">"Track 'promo_unit_cta_clicked' event on this button click" <span>— Huckleberry</span></div>
-    <div class="example-q">"the prices need to be dynamic, not static so they apply on all pages" <span>— Maritime Beauty</span></div>
-    <div class="example-q">"edit the add to cart footer so that you can select any of the variants on the page" <span>— Maritime Beauty</span></div>
-    <div class="example-q">"Can I make the CTA button redirect to https://dairyqueen.com/en-us/sign-in/" <span>— Dairy Queen</span></div>
-    <div class="example-q">"Change the visual toggles to pills… make sure to include the different states" <span>— Rooms To Go</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Remove or hide something</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(17/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~17</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"remove DP# the 6 digit sku code. Move pricing where DP# used to be" <span>— Maritime Beauty (x4)</span></div>
-    <div class="example-q">"Remove this button" <span>— Found Health</span></div>
-    <div class="example-q">"REMOVE CLICK ME CTA" <span>— QFG</span></div>
-    <div class="example-q">"Remove this menu option and dropdown entirely" <span>— Avixa</span></div>
-    <div class="example-q">"Hide this modal for this experiment. Don't show it at all." <span>— Heirloom Family</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Rearrange / reorder sections</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(17/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~17</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"Rearrange sections in the opposite order so that color is the first on the list" <span>— Rooms To Go</span></div>
-    <div class="example-q">"get this product carousel above the fold" <span>— Rowmark</span></div>
-    <div class="example-q">"move the frequently bought together carousel up under the update shopping cart elements" <span>— Rowmark</span></div>
-    <div class="example-q">"Move the Continue with Google CTA above Email" <span>— Heirloom Family</span></div>
-    <div class="example-q">"Change the order of this entire section, this should go after the next section" <span>— Allbirds</span></div>
-    <div class="example-q">"Поменять очередность: Концерты, Театр, Кино" (reorder: Concerts, Theater, Cinema) <span>— Halyk</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Tell me what to test / improve</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(15/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~15</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"Can we optimize this Add to cart box for better clicks/conversions" <span>— Maritime Beauty</span></div>
-    <div class="example-q">"Increase mobile UX" <span>— Maritime Beauty</span></div>
-    <div class="example-q">"nobody clicks on Profile!!" <span>— Odd Morning</span></div>
-    <div class="example-q">"Make this modal more lucrative and helpful" <span>— Chegg</span></div>
-    <div class="example-q">"Tailor for new visitors from the electrical contracting persona looking for labeling products" <span>— Rowmark</span></div>
-    <div class="example-q">"update the page layout to be modern, clean and responsive" <span>— Rooms To Go</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Build a full component from a spec</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(12/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~12</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"Create a modern, high-fidelity UI component based on the following specifications: Container: A vertical card with generous rounded corners…" <span>— Huckleberry (x4)</span></div>
-    <div class="example-q">"Act as a front-end developer. I need to create a responsive HTML/CSS banner…" <span>— Huckleberry</span></div>
-    <div class="example-q">(full HTML/CSS form pasted as a prompt) <span>— Maritime Beauty</span></div>
-    <div class="example-q">"change the swiper slides from round tiles to pill components with states" <span>— Rooms To Go (x4)</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Add or swap an image</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(11/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~11</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"use this image to fill the .banner-image container https://images.ctfassets.net/…" <span>— Huckleberry (x5 similar)</span></div>
-    <div class="example-q">"change the image to a cat" <span>— Ad Hoc Labs</span></div>
-    <div class="example-q">"Add a GIF of a dancing sloth at the bottom of this container" <span>— Teal</span></div>
-    <div class="example-q">"Resize the asset to a 4:3 ratio" <span>— Huckleberry</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Undo / revert / version history</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(8/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~8</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"Nope, do not like that update. undo" <span>— Huckleberry</span></div>
-    <div class="example-q">"reverse back to previous version" <span>— Huckleberry</span></div>
-    <div class="example-q">"version history" <span>— Huckleberry</span></div>
-    <div class="example-q">"revert last change" <span>— Distribusion</span></div>
-    <div class="example-q">"redo it, the styling is very bad" <span>— Maritime Beauty</span></div>
-  </div>
-</div>
-
-<div class="cat-row">
-  <div class="cat-header" onclick="toggle(this)">
-    <div class="cat-chevron">&#9654;</div>
-    <div class="cat-label">Bug report / editor confusion</div>
-    <div style="flex:1;"><div class="cat-bar" style="width: calc(8/78*100%); max-width: 300px;"></div></div>
-    <div class="cat-count">~8</div>
-  </div>
-  <div class="cat-examples">
-    <div class="example-q">"the copying of the code BONUSBEAUTY isn't working can you fix it" <span>— Maritime Beauty</span></div>
-    <div class="example-q">"this button is not clickable in navigate mode. it acts as if a user should be able to edit it" <span>— Huckleberry</span></div>
-    <div class="example-q">"The banner copy acts editable when in navigate mode. This should not happen" <span>— Huckleberry</span></div>
-    <div class="example-q">"the filter no longer works. fix the issue" <span>— Rooms To Go</span></div>
-    <div class="example-q">"can i move this element?" <span>— Photobook</span></div>
-  </div>
-</div>
-
-</div>
-
-<script>
-function toggle(header) {
-  const chevron = header.querySelector('.cat-chevron');
-  const examples = header.nextElementSibling;
-  chevron.classList.toggle('open');
-  examples.classList.toggle('open');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  background:#f4f3f0;color:#1a1a1a;line-height:1.5;padding:48px 24px;
+  -webkit-font-smoothing:antialiased;
 }
-</script>
+@media(prefers-color-scheme:dark){
+  body{background:#1a1a19;color:#e8e6e0}
+  .card{background:#232321;border-color:rgba(255,255,255,0.06)}
+  .metric-box{background:#2a2a28}
+  .metric-label{color:#a8a6a0}
+  .subtitle{color:#a8a6a0}
+  .cat-header:hover{background:rgba(255,255,255,0.04)}
+  .cat-count{color:#a8a6a0}
+  .cat-chevron{color:#78776f}
+  .cat-examples{border-color:rgba(255,255,255,0.06)}
+  .example-q{color:#a8a6a0}
+  .example-q span{color:#78776f}
+  .divider{border-color:rgba(255,255,255,0.06)}
+}
+.wrap{max-width:720px;margin:0 auto}
+.card{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:36px 32px 28px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+h1{font-size:21px;font-weight:600;letter-spacing:-0.01em;margin-bottom:6px}
+.subtitle{font-size:13px;color:#6b6b68;line-height:1.6;max-width:560px}
+.subtitle strong{font-weight:500}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0 28px}
+@media(max-width:640px){.metrics{grid-template-columns:repeat(2,1fr)}}
+.metric-box{background:#f1efe8;border-radius:10px;padding:14px 16px}
+.metric-label{font-size:11px;font-weight:500;color:#6b6b68;margin-bottom:2px;letter-spacing:0.02em}
+.metric-value{font-size:26px;font-weight:600;letter-spacing:-0.02em}
+.metric-value.purple{color:#534AB7}
+.metric-sub{font-size:14px;font-weight:500;line-height:1.3;margin-top:6px}
+.divider{border:none;border-top:1px solid rgba(0,0,0,0.06);margin:0 0 4px}
+.cat-row{margin-bottom:1px}
+.cat-header{display:flex;align-items:center;gap:8px;cursor:pointer;padding:9px 10px;border-radius:8px;transition:background 0.12s;user-select:none}
+.cat-header:hover{background:rgba(0,0,0,0.03)}
+.cat-chevron{font-size:9px;color:#999;width:14px;text-align:center;transition:transform 0.2s;flex-shrink:0}
+.cat-chevron.open{transform:rotate(90deg)}
+.cat-label{font-size:13px;font-weight:500;width:250px;flex-shrink:0}
+@media(max-width:640px){.cat-label{width:170px;font-size:12px}}
+.bar-wrap{flex:1;display:flex;align-items:center}
+.cat-bar{height:22px;border-radius:4px;background:#AFA9EC;min-width:3px}
+.cat-bar.gray{background:#B4B2A9}
+.cat-count{font-size:12px;font-weight:500;color:#6b6b68;width:36px;text-align:right;flex-shrink:0}
+.cat-examples{display:none;padding:4px 0 10px 34px;border-left:2px solid rgba(0,0,0,0.06);margin:2px 0 6px 17px}
+.cat-examples.open{display:block}
+.example-q{font-size:12px;color:#6b6b68;padding:3px 8px;line-height:1.55}
+.example-q span{color:#999;font-size:11px}
+.footer{text-align:center;margin-top:24px;font-size:11px;color:#999}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="card">
+
+<h1>What customers are really asking AI Stylizer to do</h1>
+<p class="subtitle">Analysis of all <strong>stylizer prompt submitted</strong> events from Jan 1 – May 5, 2026 across 30+ customers. Click any row to see real prompts.</p>
+
+<div class="metrics">
+  <div class="metric-box"><div class="metric-label">Total prompts</div><div class="metric-value">~335</div></div>
+  <div class="metric-box"><div class="metric-label">Unique customers</div><div class="metric-value">30+</div></div>
+  <div class="metric-box"><div class="metric-label">Beyond styling</div><div class="metric-value purple">87%</div></div>
+  <div class="metric-box"><div class="metric-label">Top ask</div><div class="metric-sub">Resize &amp; reposition elements</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Make it bigger / smaller / move it</div><div class="bar-wrap"><div class="cat-bar" style="width:100%"></div></div><div class="cat-count">~78</div></div><div class="cat-examples">
+  <div class="example-q">"Make this less wide" <span>— James Hardie (x5)</span></div>
+  <div class="example-q">"3px higher" <span>— Versant</span></div>
+  <div class="example-q">"move it 20px to the left" <span>— Versant</span></div>
+  <div class="example-q">"position sort by and page size side by side so it takes up less space" <span>— Maritime Beauty</span></div>
+  <div class="example-q">"add 24 pixels of padding to the left of the rocket emoji" <span>— QFG</span></div>
+  <div class="example-q">"aumente um pouco mais o tamanho do elemento" (make it a little bigger) <span>— Decathlon (x11 similar)</span></div>
+  <div class="example-q">"align left" <span>— Santevet (x4)</span></div>
+  <div class="example-q">"there's too much whitespace for such little text" <span>— Furnished Finder</span></div>
+  <div class="example-q">"center the button and apply the same width as the Download My Results button above" <span>— Sunny LLC</span></div>
+  <div class="example-q">"display the toggle switch to the right of the label and right aligned to the end of the container" <span>— Rooms To Go</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">One-click presets</div><div class="bar-wrap"><div class="cat-bar gray" style="width:80.8%"></div></div><div class="cat-count">~63</div></div><div class="cat-examples">
+  <div class="example-q">"compelling" <span>— 14 uses across Maritime Beauty, Rowmark, Helium 10, Snowball, others</span></div>
+  <div class="example-q">"increase_contrast" <span>— 14 uses across Maritime Beauty, Dairy Queen, Ad Hoc Labs, others</span></div>
+  <div class="example-q">"pop" <span>— 9 uses across vidIQ, Furnished Finder, Dairy Queen, others</span></div>
+  <div class="example-q">"new_visitors" <span>— 10 uses across Huckleberry, Rowmark, VGW, others</span></div>
+  <div class="example-q">"match_styles" <span>— 6 uses across Huckleberry, Versant, Furnished Finder</span></div>
+  <div class="example-q">"text2_benefits" <span>— 5 uses across Huckleberry, VGW, Gympass, others</span></div>
+  <div class="example-q">"headline1_compelling" <span>— 3 uses across Ria, Odd Morning, random-id</span></div>
+  <div class="example-q">"text1_simplify" <span>— 2 uses across James Hardie, random-id</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Add something new to the page</div><div class="bar-wrap"><div class="cat-bar" style="width:55.1%"></div></div><div class="cat-count">~43</div></div><div class="cat-examples">
+  <div class="example-q">"A modal encouraging users to sign up for DQ Rewards" <span>— Dairy Queen</span></div>
+  <div class="example-q">"create a cta" <span>— SiriusXM</span></div>
+  <div class="example-q">"Add a trust bar with 3 value propositions below the search form" <span>— Distribusion</span></div>
+  <div class="example-q">"Duplicate the bottom and place it below the You're at your best when section" <span>— Sunny LLC</span></div>
+  <div class="example-q">"Is it possible to add a button below the black blocks which leads to the full FAQ?" <span>— Dentme</span></div>
+  <div class="example-q">"add a small block below with the 5 star ratings" <span>— Distribusion</span></div>
+  <div class="example-q">"I need the modal to have a background image… then an inset content area with a header, subheader, and a CTA" <span>— Imperfect Foods</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Change colors, fonts, borders</div><div class="bar-wrap"><div class="cat-bar" style="width:46.2%"></div></div><div class="cat-count">~36</div></div><div class="cat-examples">
+  <div class="example-q">"can you make this more on brand, which is a blue background not green" <span>— Maritime Beauty</span></div>
+  <div class="example-q">"change color to brand colors" <span>— Maritime Beauty</span></div>
+  <div class="example-q">"deixe as bordas redondas" (make the borders rounded) <span>— Decathlon</span></div>
+  <div class="example-q">"button should have rounded edges so it is the same style as other buttons" <span>— James Hardie</span></div>
+  <div class="example-q">"The blue background is competing with other blue CTA buttons… adjust the colors" <span>— Huckleberry</span></div>
+  <div class="example-q">"troque a cor desse svg para branco" (change svg color to white) <span>— Decathlon</span></div>
+  <div class="example-q">"remove the border and make it look like a better toggle" <span>— Lanterna</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Write or change copy for me</div><div class="bar-wrap"><div class="cat-bar" style="width:43.6%"></div></div><div class="cat-count">~34</div></div><div class="cat-examples">
+  <div class="example-q">"Add text below this that reads First time offer! $20 off $50 or more with code: BONUSBEAUTY" <span>— Maritime Beauty</span></div>
+  <div class="example-q">"change copy to 'Plan your next trip'" <span>— Divearoo</span></div>
+  <div class="example-q">"change text to 'TALK TO AN IB EXPERT'" <span>— Lanterna</span></div>
+  <div class="example-q">"Change to 'Save $25 + $0 Delivery'" <span>— Care.com</span></div>
+  <div class="example-q">"добавь ниже billed annually" (add "billed annually" below) <span>— Semaphore (x3)</span></div>
+  <div class="example-q">"modifier le texte en 'Simuler mon net en 2 min'" <span>— Codincloud</span></div>
+  <div class="example-q">"Altere o texto da faixa… deve ser estático: Vai Brasil!" <span>— Decathlon</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Make it clickable / interactive / dynamic</div><div class="bar-wrap"><div class="cat-bar" style="width:38.5%"></div></div><div class="cat-count">~30</div></div><div class="cat-examples">
+  <div class="example-q">"when a user clicks BONUSBEAUTY copy the code to their clipboard" <span>— Maritime Beauty (x7 variations)</span></div>
+  <div class="example-q">"can you make it so clicking this image opens the rewards launcher" <span>— Maritime Beauty</span></div>
+  <div class="example-q">"Track 'promo_unit_cta_clicked' event on this button click" <span>— Huckleberry</span></div>
+  <div class="example-q">"the prices need to be dynamic, not static so they apply on all pages" <span>— Maritime Beauty</span></div>
+  <div class="example-q">"edit the add to cart footer so that you can select any of the variants on the page" <span>— Maritime Beauty</span></div>
+  <div class="example-q">"Can I make the CTA button redirect to https://dairyqueen.com/en-us/sign-in/" <span>— Dairy Queen</span></div>
+  <div class="example-q">"Change the visual toggles to pills… make sure to include the different states" <span>— Rooms To Go</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Remove or hide something</div><div class="bar-wrap"><div class="cat-bar" style="width:21.8%"></div></div><div class="cat-count">~17</div></div><div class="cat-examples">
+  <div class="example-q">"remove DP# the 6 digit sku code. Move pricing where DP# used to be" <span>— Maritime Beauty (x4)</span></div>
+  <div class="example-q">"Remove this button" <span>— Found Health</span></div>
+  <div class="example-q">"REMOVE CLICK ME CTA" <span>— QFG</span></div>
+  <div class="example-q">"Remove this menu option and dropdown entirely" <span>— Avixa</span></div>
+  <div class="example-q">"Hide this modal for this experiment. Don't show it at all." <span>— Heirloom Family</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Rearrange / reorder sections</div><div class="bar-wrap"><div class="cat-bar" style="width:21.8%"></div></div><div class="cat-count">~17</div></div><div class="cat-examples">
+  <div class="example-q">"Rearrange sections in the opposite order so that color is the first on the list" <span>— Rooms To Go</span></div>
+  <div class="example-q">"get this product carousel above the fold" <span>— Rowmark</span></div>
+  <div class="example-q">"move the frequently bought together carousel up under the update shopping cart elements" <span>— Rowmark</span></div>
+  <div class="example-q">"Move the Continue with Google CTA above Email" <span>— Heirloom Family</span></div>
+  <div class="example-q">"Change the order of this entire section, this should go after the next section" <span>— Allbirds</span></div>
+  <div class="example-q">"Поменять очередность: Концерты, Театр, Кино" (reorder: Concerts, Theater, Cinema) <span>— Halyk</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Tell me what to test / improve</div><div class="bar-wrap"><div class="cat-bar" style="width:19.2%"></div></div><div class="cat-count">~15</div></div><div class="cat-examples">
+  <div class="example-q">"Can we optimize this Add to cart box for better clicks/conversions" <span>— Maritime Beauty</span></div>
+  <div class="example-q">"Increase mobile UX" <span>— Maritime Beauty</span></div>
+  <div class="example-q">"nobody clicks on Profile!!" <span>— Odd Morning</span></div>
+  <div class="example-q">"Make this modal more lucrative and helpful" <span>— Chegg</span></div>
+  <div class="example-q">"Tailor for new visitors from the electrical contracting persona looking for labeling products" <span>— Rowmark</span></div>
+  <div class="example-q">"update the page layout to be modern, clean and responsive" <span>— Rooms To Go</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Build a full component from a spec</div><div class="bar-wrap"><div class="cat-bar" style="width:15.4%"></div></div><div class="cat-count">~12</div></div><div class="cat-examples">
+  <div class="example-q">"Create a modern, high-fidelity UI component based on the following specifications: Container: A vertical card with generous rounded corners…" <span>— Huckleberry (x4)</span></div>
+  <div class="example-q">"Act as a front-end developer. I need to create a responsive HTML/CSS banner…" <span>— Huckleberry</span></div>
+  <div class="example-q">(full HTML/CSS form pasted as a prompt) <span>— Maritime Beauty</span></div>
+  <div class="example-q">"change the swiper slides from round tiles to pill components with states" <span>— Rooms To Go (x4)</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Add or swap an image</div><div class="bar-wrap"><div class="cat-bar" style="width:14.1%"></div></div><div class="cat-count">~11</div></div><div class="cat-examples">
+  <div class="example-q">"use this image to fill the .banner-image container https://images.ctfassets.net/…" <span>— Huckleberry (x5 similar)</span></div>
+  <div class="example-q">"change the image to a cat" <span>— Ad Hoc Labs</span></div>
+  <div class="example-q">"Add a GIF of a dancing sloth at the bottom of this container" <span>— Teal</span></div>
+  <div class="example-q">"Resize the asset to a 4:3 ratio" <span>— Huckleberry</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Undo / revert / version history</div><div class="bar-wrap"><div class="cat-bar" style="width:10.3%"></div></div><div class="cat-count">~8</div></div><div class="cat-examples">
+  <div class="example-q">"Nope, do not like that update. undo" <span>— Huckleberry</span></div>
+  <div class="example-q">"reverse back to previous version" <span>— Huckleberry</span></div>
+  <div class="example-q">"version history" <span>— Huckleberry</span></div>
+  <div class="example-q">"revert last change" <span>— Distribusion</span></div>
+  <div class="example-q">"redo it, the styling is very bad" <span>— Maritime Beauty</span></div>
+</div></div>
+
+<div class="cat-row"><div class="cat-header" onclick="t(this)"><div class="cat-chevron">&#9654;</div><div class="cat-label">Bug report / editor confusion</div><div class="bar-wrap"><div class="cat-bar" style="width:10.3%"></div></div><div class="cat-count">~8</div></div><div class="cat-examples">
+  <div class="example-q">"the copying of the code BONUSBEAUTY isn't working can you fix it" <span>— Maritime Beauty</span></div>
+  <div class="example-q">"this button is not clickable in navigate mode. it acts as if a user should be able to edit it" <span>— Huckleberry</span></div>
+  <div class="example-q">"The banner copy acts editable when in navigate mode. This should not happen" <span>— Huckleberry</span></div>
+  <div class="example-q">"the filter no longer works. fix the issue" <span>— Rooms To Go</span></div>
+  <div class="example-q">"can i move this element?" <span>— Photobook</span></div>
+</div></div>
+
+</div></div>
+<p class="footer">Amplitude Web Experiment · AI Stylizer Prompt Analysis · Internal</p>
+<script>function t(h){h.querySelector('.cat-chevron').classList.toggle('open');h.nextElementSibling.classList.toggle('open')}</script>
+</body>
+</html>
