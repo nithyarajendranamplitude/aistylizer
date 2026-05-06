@@ -11,20 +11,6 @@ body{
   background:#f4f3f0;color:#1a1a1a;line-height:1.5;padding:48px 24px;
   -webkit-font-smoothing:antialiased;
 }
-@media(prefers-color-scheme:dark){
-  body{background:#1a1a19;color:#e8e6e0}
-  .card{background:#232321;border-color:rgba(255,255,255,0.06)}
-  .metric-box{background:#2a2a28}
-  .metric-label{color:#a8a6a0}
-  .subtitle{color:#a8a6a0}
-  .cat-header:hover{background:rgba(255,255,255,0.04)}
-  .cat-count{color:#a8a6a0}
-  .cat-chevron{color:#78776f}
-  .cat-examples{border-color:rgba(255,255,255,0.06)}
-  .example-q{color:#a8a6a0}
-  .example-q span{color:#78776f}
-  .divider{border-color:rgba(255,255,255,0.06)}
-}
 .wrap{max-width:720px;margin:0 auto}
 .card{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:36px 32px 28px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
 h1{font-size:21px;font-weight:600;letter-spacing:-0.01em;margin-bottom:6px}
@@ -34,16 +20,16 @@ h1{font-size:21px;font-weight:600;letter-spacing:-0.01em;margin-bottom:6px}
 @media(max-width:640px){.metrics{grid-template-columns:repeat(2,1fr)}}
 .metric-box{background:#f1efe8;border-radius:10px;padding:14px 16px}
 .metric-label{font-size:11px;font-weight:500;color:#6b6b68;margin-bottom:2px;letter-spacing:0.02em}
-.metric-value{font-size:26px;font-weight:600;letter-spacing:-0.02em}
+.metric-value{font-size:26px;font-weight:600;letter-spacing:-0.02em;color:#1a1a1a}
 .metric-value.purple{color:#534AB7}
-.metric-sub{font-size:14px;font-weight:500;line-height:1.3;margin-top:6px}
+.metric-sub{font-size:14px;font-weight:500;line-height:1.3;margin-top:6px;color:#1a1a1a}
 .divider{border:none;border-top:1px solid rgba(0,0,0,0.06);margin:0 0 4px}
 .cat-row{margin-bottom:1px}
 .cat-header{display:flex;align-items:center;gap:8px;cursor:pointer;padding:9px 10px;border-radius:8px;transition:background 0.12s;user-select:none}
 .cat-header:hover{background:rgba(0,0,0,0.03)}
 .cat-chevron{font-size:9px;color:#999;width:14px;text-align:center;transition:transform 0.2s;flex-shrink:0}
 .cat-chevron.open{transform:rotate(90deg)}
-.cat-label{font-size:13px;font-weight:500;width:250px;flex-shrink:0}
+.cat-label{font-size:13px;font-weight:500;width:250px;flex-shrink:0;color:#1a1a1a}
 @media(max-width:640px){.cat-label{width:170px;font-size:12px}}
 .bar-wrap{flex:1;display:flex;align-items:center}
 .cat-bar{height:22px;border-radius:4px;background:#AFA9EC;min-width:3px}
@@ -60,7 +46,7 @@ h1{font-size:21px;font-weight:600;letter-spacing:-0.01em;margin-bottom:6px}
 <div class="wrap">
 <div class="card">
 
-<h1>What customers are asking AI Stylizer to do</h1>
+<h1>What customers are really asking AI Stylizer to do</h1>
 <p class="subtitle">Analysis of all <strong>stylizer prompt submitted</strong> events from Jan 1 – May 5, 2026 across 30+ customers. Click any row to see real prompts.</p>
 
 <div class="metrics">
